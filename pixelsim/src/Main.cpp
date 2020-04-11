@@ -1,5 +1,5 @@
 #include "Common.hpp"
-
+#include <string>
 #include <GLFW/glfw3.h>
 
 #include "Rendering/PixelBuffer.hpp"
@@ -8,8 +8,24 @@
 namespace Zenahr {
 
 	static void Init() {
-		std::cout << "Hello" << std::endl;
-		std::cin.get();
+
+		unsigned int windowW = 640;
+		unsigned int windowH = 480;
+		char* windowTitle = "Zenahr Pixel Test";
+
+
+		// Init window
+		GLFWwindow* window;
+
+		if (!glfwInit()) {
+			std::cout << "GLFW init failed." << std::endl;
+		}
+		
+		window = glfwCreateWindow(windowW, windowH, windowTitle, nullptr, nullptr);
+		if (!window) {
+			std::cout << "Window init failed." << std::endl;
+		}
+
 	}
 
 }
