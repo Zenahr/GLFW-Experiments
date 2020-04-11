@@ -26,6 +26,13 @@ namespace Zenahr {
 			std::cout << "Window init failed." << std::endl;
 		}
 
+		// Make current window the windowcontext for further operations
+		glfwMakeContextCurrent(window);
+
+		while (!glfwWindowShouldClose(window)) {
+			glfwWaitEvents();
+		}
+
 	}
 
 }
