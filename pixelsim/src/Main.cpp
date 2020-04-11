@@ -1,10 +1,7 @@
-#include "Common.hpp"
+#include <glm\glm.hpp>
 #include <string>
 #include <GLFW/glfw3.h>
 #include <glew.h>
-
-#include "Rendering/PixelBuffer.hpp"
-#include "Rendering/Renderer.hpp"
 
 namespace Zenahr {
 
@@ -40,7 +37,7 @@ namespace Zenahr {
 			}
 		}
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glDrawPixels(100, 100, GL_RGB, GL_UNSIGNED_BYTE);
+		glDrawPixels(100, 100, GL_RGB, GL_UNSIGNED_BYTE, data);
 	}
 
 	void Update() {
