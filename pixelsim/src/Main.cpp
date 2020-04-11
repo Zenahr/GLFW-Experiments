@@ -7,14 +7,17 @@
 
 namespace Zenahr {
 
-
+	static void Init() {
+		std::cout << "Hello" << std::endl;
+		std::cin.get();
+	}
 
 }
 
 
 int main(int, char**) {
-    Zenahr::Initialize();
-    Zenahr::Update();
-    Zenahr::Clean();
+    Zenahr::Init();
+    //Zenahr::Update();
+    //Zenahr::Clean();
     return 0;
 }
