@@ -7,16 +7,13 @@
 
 namespace Zenahr {
 
+	unsigned int windowW = 640;
+	unsigned int windowH = 480;
+	char* windowTitle = "Zenahr Pixel Test";
+	// Init window
+	GLFWwindow* window;
+
 	static void Init() {
-
-		unsigned int windowW = 640;
-		unsigned int windowH = 480;
-		char* windowTitle = "Zenahr Pixel Test";
-
-
-		// Init window
-		GLFWwindow* window;
-
 		if (!glfwInit()) {
 			std::cout << "GLFW init failed." << std::endl;
 		}
@@ -28,11 +25,25 @@ namespace Zenahr {
 
 		// Make current window the windowcontext for further operations
 		glfwMakeContextCurrent(window);
+	}
 
+	void Draw() {
+		unsigned int W = 100;
+		unsigned int H = 100;
+		unsigned char* data = new usigned char[H * W * 3];
+		for (int y = 0; y < H; y++) {
+			for (int x = 0; x < W; x++) {
+				data[y * 100 * 3 + x * 3	] = 0xff;
+				data[y * 100 * 3 + x * 3 + 1] = 0x00;
+				data[y * 100 * 3 + x * 3 + 2] = 0x00;
+			}
+		}
+	}
+
+	void Update() {
 		while (!glfwWindowShouldClose(window)) {
 			glfwWaitEvents();
 		}
-
 	}
 
 }
@@ -40,7 +51,7 @@ namespace Zenahr {
 
 int main(int, char**) {
     Zenahr::Init();
-    //Zenahr::Update();
+    Zenahr::Update();
     //Zenahr::Clean();
     return 0;
 }
