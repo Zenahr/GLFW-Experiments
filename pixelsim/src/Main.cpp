@@ -1,6 +1,7 @@
 #include "Common.hpp"
 #include <string>
 #include <GLFW/glfw3.h>
+#include <glew.h>
 
 #include "Rendering/PixelBuffer.hpp"
 #include "Rendering/Renderer.hpp"
@@ -30,7 +31,7 @@ namespace Zenahr {
 	void Draw() {
 		unsigned int W = 100;
 		unsigned int H = 100;
-		unsigned char* data = new usigned char[H * W * 3];
+		unsigned char* data = new unsigned char[H * W * 3];
 		for (int y = 0; y < H; y++) {
 			for (int x = 0; x < W; x++) {
 				data[y * 100 * 3 + x * 3	] = 0xff;
@@ -38,6 +39,8 @@ namespace Zenahr {
 				data[y * 100 * 3 + x * 3 + 2] = 0x00;
 			}
 		}
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glDrawPixels(100, 100, GL_RGB, GL_UNSIGNED_BYTE);
 	}
 
 	void Update() {
